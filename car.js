@@ -1,27 +1,29 @@
-let xCar = [600, 600, 600];
-let yCar = [40, 96, 150];
-let carSpeed = [2, 2.5, 3.2];
+let xCar = [600, 600, 600, 600, 600, 600];
+let yCar = [40, 96, 150, 210, 270, 318];
+let carSpeed = [2, 2.5, 3.2, 5, 3.3, 2.3];
+let carHeight = 40;
+let carLength = 50;
 
 function drawCar() {
-    image(carImage, xCar[0], yCar[0], 50, 40)
-    image(carImage2, xCar[1], yCar[1], 50, 40)
-    image(carImage3, xCar[2], yCar[2], 60, 40)
+    for(i = 0; i < carImages.length; i++){
+      image(carImages[i], xCar[i], yCar[i], carLength, carHeight)
+    }
   }
 
   function moveCar() {
-    xCar[0] -= carSpeed[0];
-    xCar[1] -= carSpeed[1];
-    xCar[2] -= carSpeed[2];
+    for(i = 0; i < carImages.length; i++){
+      xCar[i] -= carSpeed[i];
+    }
   }
 
   function resetCarPosition() {
-    if(xCar[0] < -52) {
-        xCar[0] = 600
+    for(i = 0; i < carImages.length; i++){
+      if(outOfScreen(xCar[i])) {
+          xCar[i] = 600;
+      }
     }
-    if(xCar[1] < -52) {
-        xCar[1] = 600
-    }
-    if(xCar[2] < -52) {
-        xCar[2] = 600
-    }
+  }
+
+  function outOfScreen(xCar){
+    return xCar < -51;
   }
