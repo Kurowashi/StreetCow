@@ -1,6 +1,7 @@
 
 function setup() {
     createCanvas(500, 400)
+    music.loop();
   }
   
   function draw() {
@@ -10,4 +11,7 @@ function setup() {
     moveCar();
     movePlayer();
     resetCarPosition();
+    collide2D();
+    scoreboard();
+    addScore();
   }
